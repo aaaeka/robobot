@@ -16,6 +16,31 @@ class Message {
         global.msg.channel.send(embed);
     }
 
+    queueAdd(added, queueSize) {
+        let text;
+        if (added === 1)
+            text = 'Succesfully added song to queue';
+        else
+            text = `Sucessfully added ${added} songs to queue`;
+
+        const embed = new Discord.MessageEmbed()
+            .setTitle(text)
+            .setColor('#a2fc71')
+            .setFooter(`Currently in queue: ${queueSize} song(s)`)
+        global.msg.channel.send(embed);
+    }
+
+    video(title, author, link, queueSize, thumbnail) {
+        const embed = new Discord.MessageEmbed()
+            .setURL(link)
+            .setAuthor(author)
+            .setTitle(title)
+            .setColor('#a2fc71')
+            .setImage(thumbnail)
+            .setFooter(`Currently in queue: ${queueSize} song(s)`)
+        global.msg.channel.send(embed);
+    }
+
     queue(title, list) {
         const embed = new Discord.MessageEmbed()
             .setTitle(title)
@@ -28,6 +53,7 @@ class Message {
 
         global.msg.channel.send(embed);
     }
+
 }
 
 export default new Message();
