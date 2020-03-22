@@ -10,9 +10,16 @@ class Execute {
             case 'skip':
                 return player.skip();
                 break;
+            case 'queue':
+                return player.queueGet();
+            case 'remove':
+                return player.queueRemove(suffix);
+                break;
             case 'stop':
                 return player.stop();
                 break;
+            case 'loop':
+                return player.queueLoopToggle();
             default:
                 if (prefix) return message.error('Command does not exist');
         }
