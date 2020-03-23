@@ -7,7 +7,11 @@ import execute from './core/execute.js';
 const client = new Discord.Client();
 
 //Get config
-const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
+let config;
+if (process.env.token)
+    config = process.env;
+else
+    config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
