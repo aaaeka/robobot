@@ -23,7 +23,7 @@ client.on('message', msg => {
 
     //If parser returned nothing stop execution
     if (!parsed) return;
-    console.log(parsed);
+    
     const executed = execute.command(config.prefix, parsed.command, parsed.suffix);
 })
 

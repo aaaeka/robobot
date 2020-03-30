@@ -18,8 +18,8 @@ class Message {
 
     queueAdd(added, queueSize) {
         let text;
-        if (added === 1)
-            text = 'Succesfully added song to queue';
+        if (typeof added !== 'number')
+            text = `Succesfully added song '${added}' to queue`;
         else
             text = `Sucessfully added ${added} songs to queue`;
 
@@ -30,10 +30,10 @@ class Message {
         global.msg.channel.send(embed);
     }
 
-    video(title, author, link, queueSize, thumbnail) {
+    video(title, author, link, queueSize, thumbnail, authorAvatar, authorLink) {
         const embed = new Discord.MessageEmbed()
             .setURL(link)
-            .setAuthor(author)
+            .setAuthor(author, authorAvatar, authorLink)
             .setTitle(title)
             .setColor('#a2fc71')
             .setImage(thumbnail)

@@ -29,6 +29,10 @@ class Execute {
             case 'queue':
                 return player.queueGet();
                 break;
+            case 'shuffle':
+                return player.queueShuffle();
+                break;
+            case 'remvoe':
             case 'rem':
             case 'remove':
                 return player.queueRemove(suffix);
