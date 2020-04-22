@@ -88,6 +88,8 @@ class Player {
     }
 
     queueAddPlaylist(search) {
+        if (!search) return message.error('Adding a playlist requires an argument');
+
         // Gets playlist id from search string
         const playlistId = new URL(search).searchParams.get('list');
 

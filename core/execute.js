@@ -10,6 +10,7 @@ full command
 
 class Execute {
     command(prefix, command, suffix) {
+        command = command.toLocaleLowerCase('en-US');
         switch(command) {
             case 'paly':
             case 'p':
